@@ -8,5 +8,9 @@ people create(){
 	return ppl;
 }
 
-people getfriends(){
+people getfriends(FILE *fp, list l){
+	char *buffer[1000];
+	fscanf(fp,"%s ", buffer);
+	list->name = buffer;
+
 }

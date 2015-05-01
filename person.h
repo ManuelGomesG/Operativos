@@ -8,8 +8,8 @@ struct person
 {
 	char name[75];
 	struct list *next;
-	struct list *friends;
+	struct list *lfriends;
 };
 
-typedef struct person *people;
+typedef struct person *list;
 typedef struct person person;
