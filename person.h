@@ -7,8 +7,9 @@ Firmas de las funciones sobre listas.
 struct person
 {
 	char name[75];
-	struct list *next;
-	struct list *lfriends;
+	struct person *lnext;
+	struct person *lfriends;
+	struct person *rnext;
 };
 
 typedef struct person *list;
