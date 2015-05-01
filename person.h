@@ -4,13 +4,13 @@ Firmas de las funciones sobre listas.
 */
 
 
-struct person
+struct Person
 {
 	char name[75];
-	struct person *lnext;
-	struct person *lfriends;
-	struct person *rnext;
+	struct Person *lnext; //Siguiente en la lista de amigos de una persona.
+	struct Person *lfriends; // Listas de amigos de cada persona de la lista grande.
+	struct Person *rnext; //Siguiente en la lista de listas (lista de personas) .
 };
 
-typedef struct person *list;
-typedef struct person person;
+typedef struct Person *list;
+typedef struct Person person;
