@@ -10,6 +10,7 @@ int main()
 	list hola;
 	hola=create();
 	getfriends(fp, hola);
+
 	printf("%s\n", hola->name );
 
 	return 0;
