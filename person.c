@@ -11,9 +11,11 @@ list create(){
 
 list getfriends(FILE *fp, list l){
 	char buffer[1000];
+
 	while (fscanf(fp,"%s ", buffer) == EOF){
+		printf("puta\n");
 		strcpy(l->name , buffer);
-		printf("%s\n",l->name );
+		printf("%s\n", buffer );
 		fscanf(fp, "%s", buffer);
 		if (fscanf(fp, "%s", buffer) != "-None-"){
 			l->lfriends = malloc(sizeof(list));
