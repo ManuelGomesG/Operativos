@@ -1,30 +1,32 @@
 #include "person.h"
-#include "stdio.h"
+#include <stdio.h>
+#include "stdlib.h"
 
 
-people create(){
+list create(){
 	list ppl;
 	ppl = malloc(sizeof(person));
 	return ppl;
 }
 
-people getfriends(FILE *fp, list l){
-	char *buffer[1000];
+list getfriends(FILE *fp, list l){
+	char buffer[1000];
 	while (fscanf(fp,"%s ", buffer) == EOF){
-		l->name = buffer;
+		strcpy(l->name , buffer);
+		printf("%s\n",l->name );
 		fscanf(fp, "%s", buffer);
 		if (fscanf(fp, "%s", buffer) != "-None-"){
 			l->lfriends = malloc(sizeof(list));
 			person *auxl = l->lfriends;
 			while (fscanf(fp, "%s", buffer) == "\n"){
 				free(auxl->name);
-				auxl->name = buffer;
+				strcpy(auxl->name , buffer);
 				auxl->lnext = malloc(sizeof(person));
-				auxl=lnext;
+				auxl=auxl->lnext;
  			}
  			free(auxl);
 		}
-
+	}
 
 
 }

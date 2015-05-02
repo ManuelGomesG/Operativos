@@ -2,7 +2,7 @@
 Estructura de lista, y listas de listas.
 Firmas de las funciones sobre listas.
 */
-
+#include <stdio.h>
 
 struct Person
 {
@@ -14,3 +14,6 @@ struct Person
 
 typedef struct Person *list;
 typedef struct Person person;
+
+extern list create();
+extern list getfriends(FILE *fp, list l);
