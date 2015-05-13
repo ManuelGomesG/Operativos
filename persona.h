@@ -1,14 +1,7 @@
 #include <stdio.h>
+#include "lista.h"
 
 typedef struct {
 	char* nombre;
-	ListaAmigos amigos;
+	//Lista amigos;
 } Persona;
-
-typedef struct {
-	Persona* p;
-	struct Nodo* sig;
-} Nodo;
-
-typedef Nodo* ListaAmigos;
-typedef Nodo* ListaPersonas;
