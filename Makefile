@@ -6,6 +6,7 @@ DEPS = lista.h persona.h
 
 main: $(OBJS) $(DEPS)
 	gcc -o $@ $^
+	chmod +x friendfind
 
 .PHONY: clean
 
