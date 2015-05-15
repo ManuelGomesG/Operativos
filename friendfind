@@ -1,23 +1,25 @@
 #!/bin/bash
 
-while getopts ":m:n:::" opt; do
+while getopts ":m:n:" opt; do
   case $opt in
     m)
 
       echo "-m was triggered, Parameter: $OPTARG " >&2
       case $OPTARG in 
       	t)
-			echo threads
-			r=threads
+			pt=threads
+			echo $pt
 			;;
 		p)
-			echo processes
-			pt=hola
+			
+			pt=processes
+			echo $pt
 			;;
 		esac
       ;;
     n)
       echo "-n was triggered, Parameter: $OPTARG" >&2
+      i=$OPTARG
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
@@ -30,5 +32,9 @@ while getopts ":m:n:::" opt; do
   esac
 done
 
-echo $pt
-echo No thread/processes: $2 P/T: $4 IF: $5  OF: $6
+
+#Comentar la siguente linea para el proyecto
+
+echo No thread/processes: $i P/T: $pt IF: $5  OF: $6
+
+# ./main 
