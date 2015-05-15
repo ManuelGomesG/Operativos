@@ -1,15 +1,21 @@
-OBJS = main.o lista.o persona.o
-DEPS = lista.h persona.h
+# Makefile para aplicacion "main"
+CFLAGS	= -ggdb -Wall
+CC	= gcc
+OBJS	= funciones.o main.o 
 
-%.o: %.c $(DEPS)
-	gcc -c $^
+./ejecutables/main:	$(OBJS)
+		$(CC) $(CFLAGS) $(OBJS) -o $@
 
-main: $(OBJS) $(DEPS)
-	gcc -o $@ $^
-	chmod +x friendfind
 
-.PHONY: clean
+main.o:	./codigo/main.c ./codigo/funciones.h
+		$(CC) $(CFLAGS) -c ./codigo/main.c
+
+funciones.o: ./codigo/funciones.c
+		$(CC) $(CFLAGS) -c $<
 
 clean:
 	rm $(OBJS) *.gch
 	
+
+#		/bin/rm *.o
+
