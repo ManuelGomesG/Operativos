@@ -1,11 +1,12 @@
-OBJS = main.o lista.o persona.o
-DEPS = lista.h persona.h
+FLAGS = -g -Wall -o
+OBJS = main.o lista.o
+DEPS = lista.h
 
 %.o: %.c $(DEPS)
 	gcc -c $^
 
 main: $(OBJS) $(DEPS)
-	gcc -o $@ $^
+	gcc $(FLAGS) $@ $^
 
 .PHONY: clean
 
