@@ -15,6 +15,7 @@ funciones.o: ./codigo/funciones.c
 
 clean:
 	rm $(OBJS) *.gch
+	rm friendfind
 	
 
 #		/bin/rm *.o
