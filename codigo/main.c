@@ -11,6 +11,6 @@ main(int argc, char *argv[]) {
 	l = leer_entrada("./datos/entrada");
 	consultar(l);
 
-	//l = destruir(l);
-	//consultar(l);	
+	l = destruir(l);
+	consultar(l);	
 }

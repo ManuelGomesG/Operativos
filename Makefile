@@ -1,4 +1,3 @@
-# Makefile para aplicacion "main"
 CFLAGS = -ggdb
 CC = gcc
 OBJS = funciones.o lista.o main.o

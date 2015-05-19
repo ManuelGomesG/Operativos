@@ -27,6 +27,7 @@ Lista leer_entrada(const char *path) {
 	char *linea = NULL;
 	size_t n = 0;
 	Lista l = NULL;
+	char *temp;
 	char *nombre_t;
 
 	while (getline(&linea, &n, fp) != -1) {

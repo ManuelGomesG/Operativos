@@ -4,9 +4,10 @@
 #include "header_p1.h"
 
 Lista insertar(Lista l, char *p) {
-	Lista temp = malloc(sizeof(Persona));
+	Lista temp = (Lista) malloc(sizeof(Persona));
 
 	temp->nombre = p;
+	temp->amigos = NULL;
 	temp->sig = l;
 
 	return temp;
@@ -21,6 +22,7 @@ Lista eliminar(Lista l, Persona *p) {
 		if (l_temp == p) {
 			temp = l_temp->sig;
 			l_temp->sig = NULL;
+			free(l_temp->nombre);
 			free(l_temp);
 			l = temp;
 		} else {
@@ -28,6 +30,7 @@ Lista eliminar(Lista l, Persona *p) {
 				if (l_temp->sig == p) {
 					temp = l_temp->sig->sig;
 					l_temp->sig->sig = NULL;
+					free(l_temp->sig->nombre);
 					free(l_temp->sig);
 					l_temp->sig = temp;
 					break;
@@ -52,6 +55,7 @@ Persona *destruir_amigos(Persona *p) {
 
 Lista destruir(Lista l) {
 	while(l != NULL) {
+		l->amigos = destruir_amigos(l->amigos);
 		l = eliminar(l,(Persona *)l);
 	}
 	return l;
