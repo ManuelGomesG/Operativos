@@ -1,3 +1,0 @@
-Nombre1 -> amigo1 amigo2 amigo3
-nombre2 -> amigo4 amigo5 amigo6
-nombre -> -None-
