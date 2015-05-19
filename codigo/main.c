@@ -1,12 +1,16 @@
 #include <stdio.h>
-#include "funciones.h"
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include "header_p1.h"
 
 main(int argc, char *argv[]) {
 	system("clear");
+	Lista l;
 
-	int i;
+	l = leer_entrada("./datos/entrada");
+	consultar(l);
 
-	i = contar_lineas(argv[1]);
-
-	printf("\"%s\" tiene %d líneas\n", argv[1], i);
+	//l = destruir(l);
+	//consultar(l);	
 }

@@ -1,16 +1,18 @@
 # Makefile para aplicacion "main"
-CFLAGS	= -ggdb
-CC	= gcc
-OBJS	= funciones.o main.o 
+CFLAGS = -ggdb
+CC = gcc
+OBJS = funciones.o lista.o main.o
 
-./ejecutables/main:	$(OBJS)
+./ejecutables/friendfind: $(OBJS)
 		$(CC) $(CFLAGS) $(OBJS) -o $@
 
-
-main.o:	./codigo/main.c ./codigo/funciones.h
+main.o: ./codigo/main.c
 		$(CC) $(CFLAGS) -c ./codigo/main.c
 
 funciones.o: ./codigo/funciones.c
+		$(CC) $(CFLAGS) -c $<
+
+lista.o: ./codigo/lista.c ./codigo/header_p1.h
 		$(CC) $(CFLAGS) -c $<
 
 clean:
