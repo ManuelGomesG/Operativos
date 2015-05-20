@@ -62,9 +62,7 @@ Lista destruir(Lista l) {
 }
 
 void imprimir_amigos(Persona *a) {
-	if (a == NULL) {
-		printf("-None-");
-	} else {
+	if (a != NULL) {
 		while (a != NULL) {
 			printf("%s ", a->nombre);
 			a = a->sig;
@@ -80,7 +78,16 @@ void imprimir_persona(Persona *p) {
 	}
 }
 
-void imprimir_lista(Lista l) {
+void imprimir_lineal(Lista l, FILE *fp) {
+	if (l!= NULL) {
+		while (l != NULL) {
+			fprintf(fp, "%s ", (*l).nombre);
+			l = l->sig;
+		}
+	}
+}
+
+void imprimir(Lista l) {
 	if (l == NULL) {
 		printf("Lista vacía.\n");
 	} else {

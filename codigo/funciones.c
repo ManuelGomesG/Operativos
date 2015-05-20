@@ -47,3 +47,18 @@ Lista leer_entrada(const char *path) {
 
 	return l;
 }
+
+Lista_t Map(Persona *p) {
+	Lista_t l = NULL;
+	Lista aux = p->amigos;
+
+	while (aux != NULL) {
+		if (strcmp(p->nombre, aux->nombre) <= 0) {
+			l = insertar_t(l, p->nombre, aux->nombre, p->amigos, NULL);
+		} else {
+			l = insertar_t(l, aux->nombre, p->nombre, p->amigos, NULL);			
+		}
+		aux = aux->sig;
+	}
+	return l;
+}

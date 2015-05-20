@@ -5,19 +5,48 @@
 #include "header_p1.h"
 
 main(int argc, char *argv[]) {
-	Lista l;
-	int num_p = (int) strtol(argv[1], NULL, 10);
+	system("clear");
+
+	int n = atoi(argv[2]); //numero de procesos
+	int npersonas = contar_lineas(argv[1]);
+	int bloque = (npersonas + n - 1) / n;
+	int residuo = npersonas % n;
+	int p = bloque; //cant_p
 
 	int i;
+	int j;
+	FILE *fp;
+
+	Lista l = leer_entrada(argv[1]);
 	Persona *aux = l;
+	Lista_t l_t = NULL;
+	pid_t hijos[n];
 
-	pid_t hijo;
+	for (i = 0; i < npersonas; i++) {
+		if ((i + bloque -1) % bloque == 0) {
+			if (residuo > 0) {
+				p++;
+				residuo--;
+			}
+			if (hijos[i/bloque] = fork()) {
+				for (j = 0; j < p; j++) {
+					l_t = Map(aux);
+					aux = aux->sig;
 
-	system("clear");
-	l = leer_entrada(argv[2]);
-	//imprimir_lista(l);
+					printf("ciclo\n");
 
-	//for ()
+					fp = fopen((char*) getpid(), "w");
+					imprimir_t(l_t, fp);
+					printf("termine\n");
+					fclose(fp);
+					exit(1);
+				}
+			}
+			p = bloque;
+		}
+	}
 
-	l = destruir(l);
+	for (i = 0; i < n; i++) {
+		wait();
+	}
 }
