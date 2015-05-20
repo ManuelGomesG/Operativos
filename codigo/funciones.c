@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/types.h>
+#include <unistd.h>
 #include "header_p1.h"
 
 int contar_lineas(const char *path) {
@@ -12,13 +14,14 @@ int contar_lineas(const char *path) {
 
 	int num_l = 0;
 
-	while (getline(&linea, &n, fp) != 1) {
+	while (getline(&linea, &n, fp) != -1) {	
 		num_l++;
 	}
 
 	free(linea);
 	fclose(fp);
 	
+
 	return num_l;
 }
 
@@ -27,7 +30,6 @@ Lista leer_entrada(const char *path) {
 	char *linea = NULL;
 	size_t n = 0;
 	Lista l = NULL;
-	char *temp;
 	char *nombre_t;
 
 	while (getline(&linea, &n, fp) != -1) {
@@ -37,7 +39,7 @@ Lista leer_entrada(const char *path) {
 
 		nombre_t = strtok(NULL, " ");
 
-		while (nombre_t = strtok(NULL, " \n")) {
+		while ((nombre_t = strtok(NULL, " \n"))) {
 			l->amigos = insertar(l->amigos, nombre_t);
 		}
 	}

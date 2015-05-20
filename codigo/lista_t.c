@@ -56,6 +56,7 @@ void imprimir_tupla(Tupla t, FILE *fp) {
 		fprintf(fp, ", ");
 		imprimir_lineal(t.l2, fp);
 	}
+	fprintf(fp ,"\n");
 }
 
 void imprimir_t(Lista_t l, FILE *fp) {

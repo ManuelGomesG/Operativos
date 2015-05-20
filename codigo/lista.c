@@ -51,6 +51,8 @@ Persona *destruir_amigos(Persona *p) {
 		free(p);
 		p = temp;
 	}
+
+	return p;
 }
 
 Lista destruir(Lista l) {
