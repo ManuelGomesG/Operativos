@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include "header_p1.h"
 
-main(int argc, char *argv[]) {
+int main(int argc, char *argv[]) {
 	system("clear");
 
 	int n = atoi(argv[2]); //numero de procesos
@@ -28,14 +28,14 @@ main(int argc, char *argv[]) {
 				p++;
 				residuo--;
 			}
-			if (hijos[i/bloque] = fork()) {
+			if ((hijos[i/bloque] = fork())) {
 				for (j = 0; j < p; j++) {
 					l_t = Map(aux);
 					aux = aux->sig;
 
 					printf("ciclo\n");
 
-					fp = fopen((char*) getpid(), "w");
+					fp = fopen( getpid(), "w");
 					imprimir_t(l_t, fp);
 					printf("termine\n");
 					fclose(fp);
@@ -49,4 +49,6 @@ main(int argc, char *argv[]) {
 	for (i = 0; i < n; i++) {
 		wait();
 	}
+
+	return 0;
 }
