@@ -5,12 +5,19 @@
 #include "header_p1.h"
 
 main(int argc, char *argv[]) {
-	system("clear");
 	Lista l;
+	int num_p = (int) strtol(argv[1], NULL, 10);
 
-	l = leer_entrada("./datos/entrada");
-	consultar(l);
+	int i;
+	Persona *aux = l;
+
+	pid_t hijo;
+
+	system("clear");
+	l = leer_entrada(argv[2]);
+	//imprimir_lista(l);
+
+	//for ()
 
 	l = destruir(l);
-	consultar(l);	
 }

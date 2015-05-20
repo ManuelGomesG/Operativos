@@ -61,7 +61,7 @@ Lista destruir(Lista l) {
 	return l;
 }
 
-void consultar_amigos(Persona *a) {
+void imprimir_amigos(Persona *a) {
 	if (a == NULL) {
 		printf("-None-");
 	} else {
@@ -72,14 +72,20 @@ void consultar_amigos(Persona *a) {
 	}
 }
 
-void consultar(Lista l) {
+void imprimir_persona(Persona *p) {
+	if (p != NULL) {
+		printf("%s -> ", p->nombre);
+		imprimir_amigos(p->amigos);
+		printf("\n");
+	}
+}
+
+void imprimir_lista(Lista l) {
 	if (l == NULL) {
 		printf("Lista vacía.\n");
 	} else {
 		while (l != NULL) {
-			printf("%s -> ", l->nombre);
-			consultar_amigos(l->amigos);
-			printf("\n");
+			imprimir_persona((Persona *)l);
 			l = l->sig;
 		}
 	}
