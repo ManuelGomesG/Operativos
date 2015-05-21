@@ -7,16 +7,21 @@
 
 int main(int argc, char *argv[]) {
 	//system("clear");
-	
+
 	int n = atoi(argv[2]); //numero de procesos
 	int npersonas = contar_lineas(argv[1]);
-	
-	if (npersonas < n) {
-		n = npersonas;
+	int bloque = npersonas / n;
+	int residuo = npersonas % n;
+
+	if (bloque == 1) {
+		npersonas = n;
+	} else {	
+		if (npersonas < n) {
+			n = npersonas;
+			bloque = npersonas / n;
+		}
 	}
 
-	int bloque = (npersonas + n - 1) / n;
-	int residuo = npersonas % n;
 	int p = bloque; //cant_p
 
 	int i;
@@ -33,7 +38,10 @@ int main(int argc, char *argv[]) {
 
 
 	for (i = 0; i < npersonas; i++) {
-		if ((i + bloque -1) % bloque == 0) {
+		printf("mod = %d\n", i % bloque);
+
+		if (i % bloque == 0) {
+			printf("entro en el if\n");
 			if (residuo > 0) {
 				p++;
 				residuo--;
