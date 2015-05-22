@@ -1,3 +1,0 @@
-(amigo1 nombre1) -> amigo3 amigo2 amigo1 
-(amigo2 nombre1) -> amigo3 amigo2 amigo1 
-(amigo3 nombre1) -> amigo3 amigo2 amigo1 

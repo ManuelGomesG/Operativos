@@ -1,5 +1,0 @@
-(amigo7 nombre4) -> amigo7 
-(-None- nombre3) -> -None- 
-(amigo4 nombre2) -> amigo6 amigo5 amigo4 
-(amigo5 nombre2) -> amigo6 amigo5 amigo4 
-(amigo6 nombre2) -> amigo6 amigo5 amigo4 

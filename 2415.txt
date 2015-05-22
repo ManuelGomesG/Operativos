@@ -1,1 +1,0 @@
-(amigo7 nombre4) -> amigo7 
