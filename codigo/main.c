@@ -1,74 +1,40 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
-#include <sys/wait.h>
+#include <string.h>
+#include <dirent.h>
 #include <unistd.h>
 #include "header_p1.h"
 
 int main(int argc, char *argv[]) {
-	//system("clear");
-
-	int n = atoi(argv[2]); //numero de procesos
-	int npersonas = contar_lineas(argv[1]);
-	int bloque = npersonas / n;
-	int residuo = npersonas % n;
-
-	if (bloque == 1) {
-		npersonas = n;
-	} else {	
-		if (npersonas < n) {
-			n = npersonas;
-			bloque = npersonas / n;
-		}
-	}
-
-	int p = bloque; //cant_p
-
-	int i;
-	int j;
-	int status;
-	FILE *fp;
-
+	system("clear");
 	Lista l = leer_entrada(argv[1]);
+	int nprocesos = atoi(argv[2]);
+	int npersonas = tam(l);
 
-	Persona *aux = l;
-	Lista_t l_t = NULL;
-	char archivo[10];
-	pid_t hijos[n];
+	map_procesos(l,argv[1],nprocesos,npersonas);
 
+	DIR *dir;
+	struct dirent *dp;
+	Lista_t tuplas = NULL;
 
-	for (i = 0; i < npersonas; i++) {
-		printf("mod = %d\n", i % bloque);
+	dir = opendir("./datos");
 
-		if (i % bloque == 0) {
-			printf("entro en el if\n");
-			if (residuo > 0) {
-				p++;
-				residuo--;
-			}
-			if ((hijos[i/bloque] = fork()) == 0) {
-				sprintf(archivo, "%d.txt", getpid());
-				fp = fopen(archivo, "w");
-				
-				for (j = 0; j < p; j++) {
-					l_t = Map(aux);
-					aux = aux->sig;
-
-					imprimir_t(l_t, fp);
-				}
-				fclose(fp);
-				exit(1);
-			}
-			for (j = 0; j < p; j++) {
-				aux = aux->sig;
-			}
-			p = bloque;
+	while ((dp=readdir(dir)) != NULL) {
+	    if ((strcmp(dp->d_name, ".") != 0) && (strcmp(dp->d_name, "..") != 0)) {
+			tuplas = merge(tuplas, leer_tuplas("./datos/",dp->d_name));
 		}
 	}
 
-	for (i = 0; i < n; i++) {
-		wait(&status);
-	}
+	closedir(dir);
+
+	FILE *fp = fopen("./salida", "w");
+	imprimir_t(tuplas, fp);
+	fclose(fp);
+	system("rm datos/*.txt");
+	destruir_t(tuplas);
+
+	destruir(l);
 
 	return 0;
 }

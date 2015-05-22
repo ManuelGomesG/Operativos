@@ -13,6 +13,17 @@ Lista insertar(Lista l, char *p) {
 	return temp;
 }
 
+int tam(Lista l) {
+	int n = 0;
+
+	while (l != NULL) {
+		n++;
+		l = l->sig;
+	}
+
+	return n;
+}
+
 Lista eliminar(Lista l, Persona *p) {
 	Lista l_temp = l;
 

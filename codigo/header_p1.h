@@ -20,20 +20,25 @@ typedef Tupla *Lista_t;
 
 /*funciones de lista.c*/
 Lista insertar(Lista, char *);
+int tam(Lista);
 Lista eliminar(Lista, Persona *);
 Lista destruir(Lista);
+void imprimir_persona(Persona *);
 void imprimir_lineal(Lista, FILE *);
 void imprimir(Lista);
 void imprimir_amigos(Persona *);
 
 /*funciones de lista_t.c*/
 Lista_t insertar_t(Lista_t, char *, char *, Lista, Lista);
+Lista_t insertar_t_en_orden(Lista_t, char *, char *, Lista, Lista);
 Lista_t eliminar_t(Lista_t, Tupla *);
 Lista_t destruir_t(Lista_t);
 void imprimir_tupla(Tupla, FILE *);
 void imprimir_t(Lista_t, FILE *);
+Lista_t merge(Lista_t l1, Lista_t l2);
 
 /*funciones para el main (funciones.c)*/
-int contar_lineas(const char*);
-Lista leer_entrada(const char*);
+Lista leer_entrada(char*);
+Lista_t leer_tuplas(char*, char*);
 Lista_t Map(Persona *p);
+void map_procesos(Lista, char *, int, int);
