@@ -1,1 +1,0 @@
-int contar_lineas(char*);
