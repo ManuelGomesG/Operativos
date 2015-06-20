@@ -12,9 +12,9 @@ void phijos(int n, int m,int l2){
 		perror("fork:");
 		exit(1);
 		}
-		// Codigo que ejecutaran los hijos
+		// Código que ejecutarán los hijos
 		if (childpid == 0) {
-		
+		srand ( getpid() );
 		int *archs;
 		printf("Soy el hijo con pid %ld y mis archivos son:", getpid());
 		archs=randn(m, l2);
