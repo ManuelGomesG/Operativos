@@ -1,0 +1,44 @@
+#!/bin/bash
+
+while getopts ":m:n:" opt; do
+  case $opt in
+    m)
+
+      echo "-m was triggered, Parameter: $OPTARG " >&2
+      case $OPTARG in 
+      	t)
+			pt=threads
+
+			shift $((OPTIND-3))
+
+			;;
+		p)
+			
+			pt=processes
+
+			shift $((OPTIND-3))
+			;;
+		esac
+      ;;
+    n)
+      echo "-n was triggered, Parameter: $OPTARG" >&2
+      i=$OPTARG
+      shift $((OPTIND-3))
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 1
+      ;;
+  esac
+done
+
+
+#Comentar la siguente linea para el proyecto
+
+echo 1: $1  2: $2  IF: $3   OF: $4
+
+# ./main 
