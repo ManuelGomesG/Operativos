@@ -1,0 +1,15 @@
+#!/bin/bash
+function crear_archivos {
+	na=$(((RANDOM % 20)+1))
+	for (( i=1; i<=na; i++ ))
+	do
+		touch carpetas/$1/$i
+		echo "-archivo /$1/$i-" > carpetas/$1/$i
+	done
+}
+
+for i in {1..10}
+do
+	mkdir carpetas/$i
+	crear_archivos $i
+done	
