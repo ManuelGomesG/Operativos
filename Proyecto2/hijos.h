@@ -1,4 +1,4 @@
 
 
 
-extern void phijos(int,int,int);
+extern void phijos(int,int,int,int**);
