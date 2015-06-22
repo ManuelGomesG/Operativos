@@ -10,6 +10,9 @@ DESCRIPCIÓN:
 	revisan los archivos de la carpeta DIRECTORIO, de lo contrario se revissa la carpeta actual. Se asume que
 	hay exactamente 10 carpetas con al menos 1 archivo cada una.
 
+	Para compilar usar el Makefile (usando el comando make, también se tiene un comando make clean para eliminar
+	los archivos creados).
+
 Hecho por:
         Ricardo Münch. Carnet: 11-10684.
         Manuel Gomes. Carnet: 11-10375.
