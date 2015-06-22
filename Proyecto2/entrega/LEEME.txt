@@ -1,0 +1,15 @@
+NOMBRE:
+	MiCuento - genera un texto de un conjunto de archivos con nombres numéricos del 1 al 20 que se encuentran
+	en un conjunto de carpetas con nombres numéricos del 1 al 10 (1/, 2/, etc) de forma aleatoria.
+
+SINOPSIS:
+	./MiCuento [-d DIRECTORIO] N M SALIDA
+
+DESCRIPCIÓN:
+	Se seleccionan M archivos de N carpetas. Se ejecutan N procesos concurrentemente. Si -d está presente se
+	revisan los archivos de la carpeta DIRECTORIO, de lo contrario se revissa la carpeta actual. Se asume que
+	hay exactamente 10 carpetas con al menos 1 archivo cada una.
+
+Hecho por:
+        Ricardo Münch. Carnet: 11-10684.
+        Manuel Gomes. Carnet: 11-10375.
